@@ -1,7 +1,12 @@
 // Animations au défilement : les éléments apparaissent quand ils entrent dans l'écran.
 (function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    // Pas de vidéo qui tourne en boucle pour qui demande moins de mouvement.
+    var video = document.querySelector('.hero__photo');
+    if (video && video.pause) video.pause();
+    return;
+  }
   if (!('IntersectionObserver' in window)) return;
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
   document.documentElement.classList.add('anim');
 
@@ -11,7 +16,7 @@
     ['.hero__photo', 0, 'zoom'],
     ['.services h2', 0, 'left'],
     ['.services__intro', 0, 'up'],
-    ['.card', 130, 'up'],
+    ['.card', 180, 'card'],
     ['.services .pill', 0, 'up'],
     ['.contact h2', 0, 'left'],
     ['.contact__item', 130, 'up'],
@@ -30,6 +35,7 @@
     document.querySelectorAll(group[0]).forEach(function (el, i) {
       el.classList.add('reveal', 'reveal--' + group[2]);
       el.style.transitionDelay = i * group[1] + 'ms';
+      el.style.setProperty('--d', i * group[1] + 'ms');
       // Une fois apparu, on rend la main aux effets de survol normaux.
       el.addEventListener('transitionend', function done(e) {
         if (e.target !== el || e.propertyName !== 'transform') return;
