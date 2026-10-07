@@ -7,68 +7,113 @@
   <meta name="description" content="Plomberie Kermarrec, votre plombier à Lamballe : dépannage, installation sanitaire et chauffe-eau.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400&family=Outfit:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,400;0,500;0,700;0,800;1,300&display=swap">
   <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
-  <header class="hero">
-    <p class="hero__tag">Plombier à Lamballe-Armor (22)</p>
-    <h1>Plomberie Kermarrec</h1>
-    <p class="hero__intro">
-      Artisan plombier installé à Lamballe depuis plus de 15 ans, j'interviens
-      rapidement chez les particuliers et les professionnels du Penthièvre.
-      Devis gratuit, travail soigné et tarifs transparents.
-    </p>
-    <a class="btn" href="tel:+33296000000">📞 Appeler le 02 96 00 00 00</a>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Plomberie Kermarrec, retour en haut">
+      <svg class="brand__icon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 2.5C9 7 5.5 10.5 5.5 14.5a6.5 6.5 0 0 0 13 0C18.5 10.5 15 7 12 2.5Z"/>
+        <path d="M9 15a3 3 0 0 0 3 3"/>
+      </svg>
+      Kermarrec
+    </a>
+    <nav class="topbar__nav" aria-label="Navigation principale">
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="pill pill--white topbar__cta" href="tel:+33296000000">Appeler</a>
   </header>
 
+  <section class="hero" id="top">
+    <div class="hero__inner">
+      <div class="hero__content">
+        <p class="hero__tag">Plombier à Lamballe-Armor (22)</p>
+        <h1>Plomberie Kermarrec</h1>
+        <p class="hero__intro">
+          Artisan plombier installé à Lamballe depuis plus de 15 ans, j'interviens
+          rapidement chez les particuliers et les professionnels du Penthièvre.
+          Devis gratuit, travail soigné et tarifs transparents.
+        </p>
+        <div class="hero__actions">
+          <a class="pill pill--white" href="tel:+33296000000">📞 Appeler le 02 96 00 00 00</a>
+          <a class="hero__arrow" href="#services" aria-label="Voir mes services">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v15M6 13l6 6 6-6"/></svg>
+          </a>
+        </div>
+      </div>
+      <!-- Vidéo : Mixkit (licence Mixkit, libre d'utilisation), recadrée -->
+      <video class="hero__photo" src="videos/plombier.mp4" poster="videos/plombier-poster.jpg"
+             width="540" height="600" autoplay muted loop playsinline
+             aria-label="Plombier serrant un raccord sur un collecteur de chauffage"></video>
+    </div>
+  </section>
+
   <main>
-    <section class="services">
-      <h2>Mes services</h2>
-      <ul class="services__list">
-        <li class="card">
-          <h3>Dépannage</h3>
-          <p>Fuite d'eau, canalisation bouchée, WC en panne : intervention rapide 7j/7.</p>
-        </li>
-        <li class="card">
-          <h3>Installation</h3>
-          <p>Pose de sanitaires, robinetterie, chauffe-eau et réseaux d'eau dans le neuf.</p>
-        </li>
-        <li class="card">
-          <h3>Entretien</h3>
-          <p>Contrôle et détartrage de chauffe-eau, vérification des installations pour éviter les pannes.</p>
-        </li>
-        <li class="card">
-          <h3>Rénovation</h3>
-          <p>Remise à neuf de salles de bains et de cuisines, remplacement de tuyauteries anciennes.</p>
-        </li>
-      </ul>
+    <section class="services" id="services">
+      <svg class="pipe" viewBox="0 0 960 220" aria-hidden="true">
+        <path d="M800 0 V120 Q800 170 750 170 H190 Q140 170 140 220"/>
+      </svg>
+      <div class="services__inner">
+        <h2>Mes services</h2>
+        <p class="services__intro">
+          Du petit dépannage à la rénovation complète, je m'occupe de toute votre plomberie.
+        </p>
+        <ul class="services__list">
+          <li class="card">
+            <h3>Dépannage</h3>
+            <p>Fuite d'eau, canalisation bouchée, WC en panne : intervention rapide 7j/7.</p>
+          </li>
+          <li class="card">
+            <h3>Installation</h3>
+            <p>Pose de sanitaires, robinetterie, chauffe-eau et réseaux d'eau dans le neuf.</p>
+          </li>
+          <li class="card">
+            <h3>Entretien</h3>
+            <p>Contrôle et détartrage de chauffe-eau, vérification des installations pour éviter les pannes.</p>
+          </li>
+          <li class="card">
+            <h3>Rénovation</h3>
+            <p>Remise à neuf de salles de bains et de cuisines, remplacement de tuyauteries anciennes.</p>
+          </li>
+        </ul>
+        <a class="pill pill--blue" href="#contact">Demander un devis gratuit</a>
+      </div>
     </section>
 
-    <section class="contact">
-      <h2>Me contacter</h2>
-      <div class="contact__grid">
-        <div class="contact__item">
-          <h3>Téléphone</h3>
-          <p><a href="tel:+33296000000">02 96 00 00 00</a></p>
-          <p class="contact__note">Urgences 7j/7</p>
+    <section class="contact" id="contact">
+      <svg class="contact__deco" viewBox="0 0 200 260" aria-hidden="true">
+        <path d="M100 15C70 65 25 105 25 160a75 75 0 0 0 150 0C175 105 130 65 100 15Z"/>
+        <path d="M65 165a35 35 0 0 0 35 35"/>
+      </svg>
+      <div class="contact__inner">
+        <h2>Me contacter</h2>
+        <div class="contact__grid">
+          <div class="contact__item">
+            <h3>Téléphone</h3>
+            <p><a href="tel:+33296000000">02 96 00 00 00</a></p>
+            <p class="contact__note">Urgences 7j/7</p>
+          </div>
+          <div class="contact__item">
+            <h3>Adresse</h3>
+            <address>
+              12 rue des Artisans<br>
+              22400 Lamballe-Armor
+            </address>
+            <p class="contact__note">Intervention dans tout le Penthièvre</p>
+          </div>
+          <div class="contact__item">
+            <h3>Horaires</h3>
+            <dl class="contact__hours">
+              <dt>Lundi – Vendredi</dt><dd>8h – 18h</dd>
+              <dt>Samedi</dt><dd>9h – 12h</dd>
+              <dt>Dimanche</dt><dd>Urgences uniquement</dd>
+            </dl>
+          </div>
         </div>
-        <div class="contact__item">
-          <h3>Adresse</h3>
-          <address>
-            12 rue des Artisans<br>
-            22400 Lamballe-Armor
-          </address>
-          <p class="contact__note">Intervention dans tout le Penthièvre</p>
-        </div>
-        <div class="contact__item">
-          <h3>Horaires</h3>
-          <dl class="contact__hours">
-            <dt>Lundi – Vendredi</dt><dd>8h – 18h</dd>
-            <dt>Samedi</dt><dd>9h – 12h</dd>
-            <dt>Dimanche</dt><dd>Urgences uniquement</dd>
-          </dl>
-        </div>
+        <a class="pill pill--white" href="tel:+33296000000">Appeler maintenant</a>
       </div>
     </section>
   </main>
