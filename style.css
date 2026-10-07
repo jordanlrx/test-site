@@ -16,10 +16,18 @@
 }
 
 body {
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family: "Outfit", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   line-height: 1.6;
   color: var(--text);
   background: var(--bg);
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 600;
+  letter-spacing: -0.01em;
 }
 
 /* En-tête */
@@ -91,7 +99,7 @@ body {
 .services__list {
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
   gap: 1.5rem;
 }
 
@@ -109,6 +117,89 @@ body {
 }
 
 .card p {
+  color: var(--muted);
+}
+
+.card h3,
+.card p {
+  font-family: "Fraunces", Georgia, serif;
+  font-style: italic;
+}
+
+.card h3 {
+  font-weight: 400;
+}
+
+.card p {
+  font-weight: 300;
+}
+
+/* Contact */
+.contact {
+  background: var(--white);
+  padding: 4rem 1rem;
+  border-top: 1px solid #e4e7eb;
+}
+
+.contact h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  color: var(--blue);
+  margin-bottom: 2rem;
+}
+
+.contact__grid {
+  max-width: 60rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 2rem;
+}
+
+.contact__item {
+  text-align: center;
+}
+
+.contact__item h3 {
+  color: var(--blue);
+  margin-bottom: 0.5rem;
+}
+
+.contact__item a {
+  color: var(--accent-dark);
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.contact__item a:hover,
+.contact__item a:focus-visible {
+  text-decoration: underline;
+}
+
+.contact address {
+  font-style: normal;
+}
+
+.contact__note {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+}
+
+.contact__hours {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: center;
+  gap: 0.25rem 1rem;
+  text-align: left;
+}
+
+.contact__hours dt {
+  font-weight: 500;
+}
+
+.contact__hours dd {
   color: var(--muted);
 }
 
