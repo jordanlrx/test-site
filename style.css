@@ -1,8 +1,12 @@
 :root {
-  --blue: #1f5fd6;
-  --blue-dark: #174aa8;
-  --text: #2b2b2b;
-  --muted: #555555;
+  --blue: #1e40af;
+  --blue-light: #3b82f6;
+  --blue-dark: #1e3a8a;
+  --orange: #c2410c;
+  --orange-dark: #9a3412;
+  --bg-soft: #eff6ff;
+  --text: #1e3a8a;
+  --muted: #475569;
   --white: #ffffff;
   --topbar-h: 4.5rem;
 }
@@ -18,7 +22,7 @@ html {
 }
 
 body {
-  font-family: "Exo 2", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family: "Source Sans 3", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   line-height: 1.7;
   color: var(--text);
   background: var(--white);
@@ -27,9 +31,10 @@ body {
 h1,
 h2,
 h3 {
-  font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: -0.01em;
+  font-family: "Lexend", system-ui, sans-serif;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
 }
 
 section {
@@ -52,14 +57,16 @@ section {
   transform: translateY(-2px);
 }
 
-.pill--white {
-  background: var(--white);
-  color: var(--blue);
+/* Bouton d'appel : orange « urgence » */
+.pill--cta {
+  background: var(--orange);
+  color: var(--white);
+  font-weight: 600;
 }
 
-.pill--white:hover,
-.pill--white:focus-visible {
-  background: #e6eefc;
+.pill--cta:hover,
+.pill--cta:focus-visible {
+  background: var(--orange-dark);
 }
 
 .pill--blue {
@@ -102,8 +109,9 @@ a:focus-visible {
   gap: 0.4rem;
   margin-right: auto;
   color: var(--white);
-  font-size: 1.6rem;
-  font-weight: 800;
+  font-family: "Lexend", system-ui, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
   text-decoration: none;
 }
 
@@ -219,6 +227,7 @@ a:focus-visible {
 
 /* Services */
 .services {
+  background: var(--bg-soft);
   padding: 4rem 1rem 5rem;
 }
 
@@ -264,7 +273,7 @@ a:focus-visible {
 .card p {
   color: var(--muted);
   font-style: italic;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 1.05rem;
 }
 
@@ -389,7 +398,7 @@ a:focus-visible {
     height: auto;
     margin: 0 auto 1.5rem;
     fill: none;
-    stroke: var(--blue);
+    stroke: var(--blue-light);
     stroke-width: 24;
     stroke-linecap: round;
   }
