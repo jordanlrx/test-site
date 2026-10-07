@@ -1,12 +1,10 @@
 :root {
-  --blue: #0b4f8a;
-  --blue-dark: #083a66;
-  --accent: #f28c28;
-  --accent-dark: #d9741a;
-  --text: #1f2933;
-  --muted: #52606d;
-  --bg: #f5f7fa;
+  --blue: #1f5fd6;
+  --blue-dark: #174aa8;
+  --text: #2b2b2b;
+  --muted: #555555;
   --white: #ffffff;
+  --topbar-h: 4.5rem;
 }
 
 * {
@@ -15,198 +13,490 @@
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: "Outfit", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  line-height: 1.6;
+  font-family: "Exo 2", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.7;
   color: var(--text);
-  background: var(--bg);
+  background: var(--white);
 }
 
 h1,
 h2,
 h3 {
-  font-family: "Fraunces", Georgia, serif;
-  font-weight: 600;
+  font-weight: 800;
+  line-height: 1.05;
   letter-spacing: -0.01em;
 }
 
-/* En-tête */
-.hero {
-  background: linear-gradient(135deg, var(--blue), var(--blue-dark));
-  color: var(--white);
-  text-align: center;
-  padding: 5rem 1rem 4rem;
+section {
+  scroll-margin-top: var(--topbar-h);
 }
 
-.hero__tag {
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  font-size: 0.85rem;
-  opacity: 0.8;
-}
-
-.hero h1 {
-  font-size: clamp(2rem, 6vw, 3.25rem);
-  margin: 0.5rem 0 1rem;
-}
-
-.hero__intro {
-  max-width: 40rem;
-  margin: 0 auto 2rem;
-  font-size: 1.1rem;
-  opacity: 0.95;
-}
-
-/* Bouton d'appel */
-.btn {
+/* Boutons en pilule */
+.pill {
   display: inline-block;
-  background: var(--accent);
-  color: var(--white);
-  font-weight: 700;
-  font-size: 1.1rem;
+  font-weight: 500;
+  font-size: 1.05rem;
   text-decoration: none;
-  padding: 0.9rem 1.8rem;
+  padding: 0.8rem 1.7rem;
   border-radius: 999px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
-  transition: background 0.2s, transform 0.2s;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
 }
 
-.btn:hover,
-.btn:focus-visible {
-  background: var(--accent-dark);
+.pill:hover,
+.pill:focus-visible {
   transform: translateY(-2px);
 }
 
-.btn:focus-visible {
-  outline: 3px solid var(--white);
+.pill--white {
+  background: var(--white);
+  color: var(--blue);
+}
+
+.pill--white:hover,
+.pill--white:focus-visible {
+  background: #e6eefc;
+}
+
+.pill--blue {
+  background: var(--blue);
+  color: var(--white);
+}
+
+.pill--blue:hover,
+.pill--blue:focus-visible {
+  background: var(--blue-dark);
+}
+
+a:focus-visible {
+  outline: 3px solid var(--text);
   outline-offset: 3px;
+}
+
+.topbar a:focus-visible,
+.hero a:focus-visible,
+.contact a:focus-visible {
+  outline-color: var(--white);
+}
+
+/* Barre du haut */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  height: var(--topbar-h);
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0 1rem;
+  background: var(--blue);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-right: auto;
+  color: var(--white);
+  font-size: 1.6rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.brand__icon {
+  width: 2rem;
+  height: 2rem;
+  fill: none;
+  stroke: var(--white);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.topbar__nav {
+  display: none;
+  gap: 2rem;
+}
+
+.topbar__nav a {
+  color: var(--white);
+  font-size: 1.05rem;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.topbar__nav a:hover,
+.topbar__nav a:focus-visible {
+  border-color: var(--white);
+}
+
+.topbar__cta {
+  padding: 0.55rem 1.3rem;
+}
+
+/* Bandeau principal */
+.hero {
+  background: var(--blue);
+  color: var(--white);
+  padding: 3rem 1rem 0;
+}
+
+.hero__inner {
+  max-width: 60rem;
+  margin: 0 auto;
+  display: grid;
+  gap: 2.5rem;
+}
+
+.hero__tag {
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.hero h1 {
+  font-size: clamp(2.75rem, 9vw, 5.25rem);
+  margin: 0.75rem 0 1.25rem;
+}
+
+.hero__intro {
+  max-width: 34rem;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.5rem;
+}
+
+.hero__arrow {
+  display: grid;
+  place-items: center;
+  width: 3.75rem;
+  height: 3.75rem;
+  border: 2px solid var(--white);
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+
+.hero__arrow svg {
+  width: 1.6rem;
+  height: 1.6rem;
+  fill: none;
+  stroke: var(--white);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.hero__arrow:hover,
+.hero__arrow:focus-visible {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Photo en forme de pilule qui déborde sur la section suivante */
+.hero__photo {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  max-width: 16rem;
+  height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  margin: 0 auto -5rem;
+  border-radius: 999px;
 }
 
 /* Services */
 .services {
+  padding: 7rem 1rem 5rem;
+}
+
+.pipe {
+  display: none;
+}
+
+.services__inner {
   max-width: 60rem;
   margin: 0 auto;
-  padding: 4rem 1rem;
+}
+
+.services h2,
+.contact h2 {
+  font-size: clamp(2.25rem, 6vw, 3.5rem);
 }
 
 .services h2 {
-  text-align: center;
-  font-size: 1.8rem;
   color: var(--blue);
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+}
+
+.services__intro {
+  max-width: 36rem;
+  font-size: 1.1rem;
+  margin-bottom: 2.5rem;
 }
 
 .services__list {
   list-style: none;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
-  gap: 1.5rem;
-}
-
-.card {
-  background: var(--white);
-  border-radius: 12px;
-  padding: 1.5rem;
-  border-top: 4px solid var(--accent);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  gap: 2.5rem 2rem;
+  margin-bottom: 3rem;
 }
 
 .card h3 {
   color: var(--blue);
-  margin-bottom: 0.5rem;
+  font-size: 1.6rem;
+  margin-bottom: 0.6rem;
 }
 
 .card p {
   color: var(--muted);
-}
-
-.card h3,
-.card p {
-  font-family: "Fraunces", Georgia, serif;
   font-style: italic;
-}
-
-.card h3 {
-  font-weight: 400;
-}
-
-.card p {
   font-weight: 300;
+  font-size: 1.05rem;
 }
 
 /* Contact */
 .contact {
-  background: var(--white);
-  padding: 4rem 1rem;
-  border-top: 1px solid #e4e7eb;
+  position: relative;
+  overflow: hidden;
+  background: var(--blue);
+  color: var(--white);
+  padding: 5rem 1rem;
+}
+
+.contact__deco {
+  position: absolute;
+  left: -6rem;
+  bottom: -4rem;
+  width: 22rem;
+  fill: none;
+  stroke: var(--white);
+  stroke-width: 22;
+  stroke-linecap: round;
+  opacity: 0.18;
+}
+
+.contact__inner {
+  position: relative;
+  max-width: 60rem;
+  margin: 0 auto;
 }
 
 .contact h2 {
-  text-align: center;
-  font-size: 1.8rem;
-  color: var(--blue);
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
 }
 
 .contact__grid {
-  max-width: 60rem;
-  margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
   gap: 2rem;
-}
-
-.contact__item {
-  text-align: center;
+  margin-bottom: 3rem;
 }
 
 .contact__item h3 {
-  color: var(--blue);
-  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+  margin-bottom: 0.6rem;
 }
 
 .contact__item a {
-  color: var(--accent-dark);
-  font-size: 1.3rem;
+  color: var(--white);
+  font-size: 1.4rem;
   font-weight: 700;
   text-decoration: none;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.5);
 }
 
 .contact__item a:hover,
 .contact__item a:focus-visible {
-  text-decoration: underline;
+  border-color: var(--white);
 }
 
 .contact address {
   font-style: normal;
+  font-size: 1.1rem;
 }
 
 .contact__note {
-  color: var(--muted);
-  font-size: 0.9rem;
-  margin-top: 0.25rem;
+  font-size: 0.95rem;
+  margin-top: 0.35rem;
+  opacity: 0.9;
 }
 
 .contact__hours {
   display: grid;
   grid-template-columns: auto auto;
-  justify-content: center;
+  justify-content: start;
   gap: 0.25rem 1rem;
-  text-align: left;
 }
 
 .contact__hours dt {
   font-weight: 500;
 }
 
-.contact__hours dd {
-  color: var(--muted);
-}
-
 /* Pied de page */
 .footer {
-  text-align: center;
-  padding: 1.5rem 1rem;
+  padding: 1rem;
   font-size: 0.9rem;
-  color: var(--muted);
+  color: var(--blue);
+}
+
+/* Grand écran */
+@media (min-width: 48rem) {
+  .topbar {
+    padding: 0 2rem;
+    gap: 2.5rem;
+  }
+
+  .topbar__nav {
+    display: flex;
+  }
+
+  .hero {
+    padding: 5rem 2rem 0;
+  }
+
+  .hero__inner {
+    grid-template-columns: 1.5fr 1fr;
+    align-items: end;
+  }
+
+  .hero__content {
+    padding-bottom: 5rem;
+  }
+
+  .hero__photo {
+    max-width: 20rem;
+    margin: 0 0 -7rem auto;
+  }
+
+  .services {
+    padding: 0 2rem 6rem;
+  }
+
+  .pipe {
+    display: block;
+    width: 100%;
+    max-width: 60rem;
+    height: auto;
+    margin: 0 auto 1.5rem;
+    fill: none;
+    stroke: var(--blue);
+    stroke-width: 24;
+    stroke-linecap: round;
+  }
+
+  .contact {
+    padding: 6rem 2rem;
+  }
+
+  .contact__inner {
+    padding-left: 30%;
+  }
+
+  .contact__deco {
+    left: -4rem;
+    top: 50%;
+    bottom: auto;
+    width: 30rem;
+    transform: translateY(-50%);
+  }
+
+  .footer {
+    padding: 1rem 2rem;
+  }
+}
+
+/* Animations au défilement (activées par script.js) */
+.anim .reveal {
+  opacity: 0;
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.anim .reveal--up {
+  transform: translateY(2.5rem);
+}
+
+.anim .reveal--left {
+  transform: translateX(-3rem);
+}
+
+.anim .reveal--zoom {
+  transform: translateY(3rem) scale(0.85);
+}
+
+.anim .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Le tuyau et la goutte se dessinent au trait */
+.anim .pipe path,
+.anim .contact__deco path {
+  stroke-dasharray: 1 2;
+  stroke-dashoffset: 1.01;
+}
+
+.anim .contact__deco path {
+  transition: stroke-dashoffset 1.8s ease-in-out;
+}
+
+/* Le tuyau suit le défilement (script.js) ; petite transition pour lisser */
+.anim .pipe path {
+  transition: stroke-dashoffset 0.15s linear;
+}
+
+.anim .contact__deco.is-visible path {
+  stroke-dashoffset: 0;
+}
+
+/* Puis la goutte flotte doucement */
+.anim .contact__deco.is-visible {
+  animation: float 6s ease-in-out 1.8s infinite alternate;
+}
+
+@keyframes float {
+  to {
+    rotate: 8deg;
+  }
+}
+
+/* La flèche du bandeau rebondit légèrement */
+.anim .hero__arrow svg {
+  animation: nudge 1.8s ease-in-out infinite;
+}
+
+@keyframes nudge {
+  50% {
+    transform: translateY(4px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .pill,
+  .hero__arrow,
+  .topbar__nav a {
+    transition: none;
+  }
+
+  .pill:hover,
+  .pill:focus-visible {
+    transform: none;
+  }
 }
