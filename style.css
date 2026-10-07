@@ -277,6 +277,42 @@ a:focus-visible {
   font-size: 1.05rem;
 }
 
+/* Case autour de chaque service */
+.card {
+  position: relative;
+  padding: 1.5rem;
+  border: 2px solid var(--blue-light);
+  border-radius: 16px;
+}
+
+/* Avec les animations, la bordure est remplacée par un cadre qui se trace (script.js) */
+.anim .card {
+  border-color: transparent;
+}
+
+.card__frame {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  overflow: visible;
+  pointer-events: none;
+}
+
+.card__frame rect {
+  fill: none;
+  stroke: var(--blue-light);
+  stroke-width: 2;
+  stroke-dasharray: 1 2;
+  stroke-dashoffset: 1.01;
+  transition: stroke-dashoffset 1.2s ease-in-out calc(var(--d, 0ms) + 300ms);
+}
+
+.card.is-framed .card__frame rect {
+  stroke-dashoffset: 0;
+}
+
 /* Contact */
 .contact {
   position: relative;
