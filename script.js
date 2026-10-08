@@ -121,13 +121,26 @@
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   var svg = document.createElementNS(NS, 'svg');
-  var path = document.createElementNS(NS, 'path');
   var probe = document.createElementNS(NS, 'path'); // sert à mesurer les longueurs
   svg.setAttribute('class', 'thread');
   svg.setAttribute('aria-hidden', 'true');
-  path.setAttribute('pathLength', '1');
-  probe.setAttribute('visibility', 'hidden');
-  svg.appendChild(path);
+
+  // Le tuyau est dessiné en couches superposées sur le même tracé :
+  // bord foncé, corps, reflet et éclat lumineux (effet de tube arrondi).
+  var LAYERS = [['edge', 5, 0], ['body', 0, 1], ['shine', 0, 0.42], ['glint', 0, 0.14]];
+  var layers = LAYERS.map(function (l) {
+    var el = document.createElementNS(NS, 'path');
+    el.setAttribute('class', 'thread__' + l[0]);
+    el.setAttribute('pathLength', '1');
+    svg.appendChild(el);
+    return { el: el, extra: l[1], ratio: l[2] };
+  });
+  var fittingsGroup = document.createElementNS(NS, 'g');
+  fittingsGroup.setAttribute('class', 'thread__fittings');
+  svg.appendChild(fittingsGroup);
+  var fittings = [];
+
+  probe.setAttribute('class', 'thread__probe');
   svg.appendChild(probe);
   main.insertBefore(svg, main.firstChild);
   document.documentElement.classList.add('has-thread');
@@ -202,15 +215,53 @@
     svg.setAttribute('width', W);
     svg.setAttribute('height', yEnd + sw);
     svg.setAttribute('viewBox', '0 0 ' + W + ' ' + (yEnd + sw));
-    path.setAttribute('d', d);
-    path.setAttribute('stroke-width', sw);
+    layers.forEach(function (l) {
+      l.el.setAttribute('d', d);
+      l.el.setAttribute('stroke-width', l.ratio ? sw * l.ratio + l.extra : sw + l.extra);
+    });
+
+    // Raccords : un manchon de chaque côté de chaque coude, et une collerette
+    // plus large à la sortie du bandeau et à l'arrivée dans le contact.
+    // [x, y, sens du tuyau (v = vertical, h = horizontal), apparaît quand le tuyau atteint…, collerette ?]
+    var at = function (i) { return pieces[i].from; };
+    var spots = [
+      [px, 10, 'v', 0, true],
+      [px, yH - r, 'v', at(1)], [px - r, yH, 'h', at(1)],
+      [gxL + r, yH, 'h', at(2)], [gxL, yH + r, 'v', at(2)],
+      [gxL, yS - r, 'v', at(3)], [gxL + r, yS, 'h', at(3)],
+      [gxR - r, yS, 'h', at(4)], [gxR, yS + r, 'v', at(4)],
+      [gxR, yZ - r, 'v', at(5)], [gxR - r, yZ, 'h', at(5)],
+      [cx + r, yZ, 'h', at(6)], [cx, yZ + r, 'v', at(6)],
+      [cx, yEnd - 10, 'v', total, true]
+    ];
+    fittingsGroup.textContent = '';
+    fittings = spots.map(function (f) {
+      var rect = document.createElementNS(NS, 'rect');
+      var across = sw + (f[4] ? 14 : 8);   // largeur en travers du tuyau
+      var along = f[4] ? 10 : 8;           // épaisseur dans le sens du tuyau
+      var w = f[2] === 'v' ? across : along;
+      var h = f[2] === 'v' ? along : across;
+      rect.setAttribute('x', f[0] - w / 2);
+      rect.setAttribute('y', f[1] - h / 2);
+      rect.setAttribute('width', w);
+      rect.setAttribute('height', h);
+      rect.setAttribute('rx', 2.5);
+      rect.setAttribute('class', 'thread__fitting');
+      fittingsGroup.appendChild(rect);
+      return { el: rect, at: Math.min(f[3] + 1, total) };
+    });
     draw();
+  }
+
+  function show(drawn) {
+    svg.style.setProperty('--draw', (1.01 * (1 - drawn / total)).toString());
+    fittings.forEach(function (f) { f.el.classList.toggle('is-on', drawn >= f.at); });
   }
 
   function draw() {
     ticking = false;
     if (!desktop.matches || !total) return;
-    if (reduce || complete) { path.style.strokeDashoffset = '0'; return; }
+    if (reduce || complete) { show(total); return; }
     var tip = window.innerHeight * 0.75 - main.getBoundingClientRect().top;
     var drawn = 0;
     pieces.forEach(function (pc) {
@@ -219,7 +270,7 @@
       if (t > 0) drawn = pc.from + (pc.to - pc.from) * t;
     });
     if (drawn >= total) complete = true;
-    path.style.strokeDashoffset = (1.01 * (1 - drawn / total)).toString();
+    show(drawn);
   }
 
   var ticking = false;
