@@ -1,0 +1,321 @@
+/* Page « Demande de devis » — s'appuie sur les couleurs et polices de style.css */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Lien de la page en cours dans la barre du haut */
+.topbar__nav a[aria-current="page"] {
+  border-color: var(--white);
+}
+
+/* En-tête de la page */
+.quote-hero {
+  background: var(--blue);
+  color: var(--white);
+  padding: 3rem 1rem 4rem;
+}
+
+.quote-hero__inner {
+  max-width: 46rem;
+  margin: 0 auto;
+}
+
+.quote-hero h1 {
+  font-size: clamp(2.25rem, 7vw, 3.75rem);
+  margin: 0.75rem 0 1rem;
+}
+
+.quote-hero__intro {
+  font-size: 1.1rem;
+  max-width: 38rem;
+}
+
+/* Zone du formulaire */
+.quote {
+  background: var(--bg-soft);
+  padding: 0 1rem 5rem;
+}
+
+.quote__form,
+.quote__success {
+  position: relative;
+  max-width: 46rem;
+  margin: -2rem auto 0;
+  background: var(--white);
+  border: 2px solid var(--blue-light);
+  border-radius: 16px;
+  padding: 1.5rem;
+}
+
+.quote__legend-note {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+
+.quote__summary {
+  border-left: 4px solid var(--orange);
+  background: #fff7ed;
+  color: var(--orange-dark);
+  font-weight: 600;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+/* Groupes de champs */
+fieldset {
+  border: 0;
+  min-width: 0;
+}
+
+.quote__group + .quote__group {
+  margin-top: 2.5rem;
+}
+
+.quote__group > legend {
+  font-family: "Lexend", system-ui, sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--blue);
+  margin-bottom: 1.25rem;
+}
+
+.field {
+  margin-bottom: 1.25rem;
+}
+
+.field-row {
+  display: grid;
+  gap: 0 1.25rem;
+}
+
+.field label,
+.choice > legend {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+.field input[type="text"],
+.field input[type="tel"],
+.field input[type="email"],
+.field select,
+.field textarea {
+  width: 100%;
+  min-height: 3rem;
+  font: inherit;
+  font-size: 1rem;
+  color: var(--text);
+  background: var(--white);
+  border: 1.5px solid #94a3b8;
+  border-radius: 10px;
+  padding: 0.65rem 0.85rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.field textarea {
+  resize: vertical;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.35);
+}
+
+.field input[type="file"] {
+  font: inherit;
+  max-width: 100%;
+}
+
+.field__hint {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-top: 0.3rem;
+}
+
+.field__error {
+  color: #b91c1c;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-top: 0.3rem;
+}
+
+.field__error:empty {
+  display: none;
+}
+
+.field [aria-invalid="true"] {
+  border-color: #b91c1c;
+}
+
+/* Choix (boutons radio et cases à cocher) en cartes cliquables */
+.choice__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(10.5rem, 1fr));
+  gap: 0.6rem;
+}
+
+.field .choice__item {
+  display: flex;
+  margin: 0;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 3rem;
+  padding: 0.5rem 0.85rem;
+  border: 1.5px solid #94a3b8;
+  border-radius: 10px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.choice__item:hover {
+  border-color: var(--blue-light);
+}
+
+.choice__item:has(input:checked) {
+  border-color: var(--blue);
+  background: var(--bg-soft);
+}
+
+.choice__item:has(input:focus-visible) {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.35);
+}
+
+.choice__item input,
+.consent input {
+  width: 1.2rem;
+  height: 1.2rem;
+  flex-shrink: 0;
+  accent-color: var(--blue);
+}
+
+.choice[aria-invalid="true"] .choice__item {
+  border-color: #b91c1c;
+}
+
+/* Consentement */
+.field .consent {
+  display: flex;
+  margin: 0;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.consent input {
+  margin-top: 0.3rem;
+}
+
+/* Envoi */
+.quote__submit {
+  width: 100%;
+  min-height: 3.25rem;
+  border: 0;
+  font: inherit;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.quote__submit:focus-visible {
+  outline: 3px solid var(--text);
+  outline-offset: 3px;
+}
+
+.quote__submit[disabled] {
+  opacity: 0.7;
+  cursor: progress;
+  transform: none;
+}
+
+.quote__alt {
+  text-align: center;
+  color: var(--muted);
+  margin-top: 1rem;
+}
+
+.quote__alt a,
+.quote__success p a {
+  color: var(--blue);
+  font-weight: 600;
+}
+
+/* Message de confirmation */
+.quote__success {
+  text-align: center;
+  padding: 3rem 1.5rem;
+}
+
+.quote__success:focus {
+  outline: none;
+}
+
+.quote__success svg {
+  width: 4rem;
+  height: 4rem;
+  fill: none;
+  stroke: var(--blue-light);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  margin-bottom: 1rem;
+}
+
+.quote__success h2 {
+  color: var(--blue);
+  font-size: 1.6rem;
+  margin-bottom: 0.75rem;
+}
+
+.quote__success p {
+  margin-bottom: 1.75rem;
+}
+
+/* Grand écran */
+@media (min-width: 48rem) {
+  .quote-hero {
+    padding: 4rem 2rem 5rem;
+  }
+
+  .quote {
+    padding: 0 2rem 6rem;
+  }
+
+  .quote__form,
+  .quote__success {
+    padding: 2.5rem;
+  }
+
+  .field-row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .field-row--postal {
+    grid-template-columns: 10rem 1fr;
+  }
+
+  .quote__submit {
+    width: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .field input,
+  .field select,
+  .field textarea,
+  .choice__item {
+    transition: none;
+  }
+}

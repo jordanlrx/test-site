@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demande de devis – Plomberie Kermarrec, Lamballe</title>
+  <meta name="description" content="Demandez gratuitement votre devis de plomberie à Lamballe : dépannage, installation, entretien, rénovation.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="devis.css">
+  <script src="devis.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="Plomberie Kermarrec, retour à l'accueil">
+      <svg class="brand__icon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 2.5C9 7 5.5 10.5 5.5 14.5a6.5 6.5 0 0 0 13 0C18.5 10.5 15 7 12 2.5Z"/>
+        <path d="M9 15a3 3 0 0 0 3 3"/>
+      </svg>
+      Kermarrec
+    </a>
+    <nav class="topbar__nav" aria-label="Navigation principale">
+      <a href="index.html#services">Services</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="devis.html" aria-current="page">Devis</a>
+    </nav>
+    <a class="pill pill--cta topbar__cta" href="tel:+33296000000">Appeler</a>
+  </header>
+
+  <section class="quote-hero">
+    <div class="quote-hero__inner">
+      <p class="hero__tag">Devis gratuit · Lamballe-Armor et Penthièvre</p>
+      <h1>Demander un devis</h1>
+      <p class="quote-hero__intro">
+        Décrivez votre besoin en quelques minutes : je vous recontacte rapidement pour
+        en parler et, si nécessaire, passer voir l'installation.
+      </p>
+    </div>
+  </section>
+
+  <main class="quote">
+    <form class="quote__form" id="quote-form" novalidate>
+      <p class="quote__legend-note">Les champs marqués <span aria-hidden="true">*</span><span class="sr-only">d'un astérisque</span> sont obligatoires.</p>
+
+      <div class="quote__summary" id="form-errors" role="alert" hidden></div>
+
+      <fieldset class="quote__group">
+        <legend>1. Vos coordonnées</legend>
+
+        <div class="field">
+          <label for="name">Nom et prénom <span aria-hidden="true">*</span></label>
+          <input id="name" name="name" type="text" autocomplete="name" required
+                 aria-describedby="name-error">
+          <p class="field__error" id="name-error"></p>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="phone">Téléphone <span aria-hidden="true">*</span></label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required
+                   pattern="^(?:\+33\s?|0)[1-9](?:[\s.\-]?\d{2}){4}$"
+                   aria-describedby="phone-hint phone-error">
+            <p class="field__hint" id="phone-hint">Ex. : 06 12 34 56 78</p>
+            <p class="field__error" id="phone-error"></p>
+          </div>
+
+          <div class="field">
+            <label for="email">E-mail <span aria-hidden="true">*</span></label>
+            <input id="email" name="email" type="email" autocomplete="email" required
+                   aria-describedby="email-error">
+            <p class="field__error" id="email-error"></p>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="address">Adresse du chantier <span aria-hidden="true">*</span></label>
+          <input id="address" name="address" type="text" autocomplete="street-address" required
+                 aria-describedby="address-error">
+          <p class="field__error" id="address-error"></p>
+        </div>
+
+        <div class="field-row field-row--postal">
+          <div class="field">
+            <label for="postal">Code postal <span aria-hidden="true">*</span></label>
+            <input id="postal" name="postal" type="text" autocomplete="postal-code" inputmode="numeric"
+                   required pattern="^\d{5}$" maxlength="5" aria-describedby="postal-error">
+            <p class="field__error" id="postal-error"></p>
+          </div>
+
+          <div class="field">
+            <label for="city">Ville <span aria-hidden="true">*</span></label>
+            <input id="city" name="city" type="text" autocomplete="address-level2" required
+                   aria-describedby="city-error">
+            <p class="field__error" id="city-error"></p>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="quote__group">
+        <legend>2. Votre projet</legend>
+
+        <fieldset class="field choice" aria-describedby="service-error">
+          <legend>Type de prestation <span aria-hidden="true">*</span></legend>
+          <div class="choice__grid">
+            <label class="choice__item"><input type="radio" name="service" value="depannage" required> Dépannage</label>
+            <label class="choice__item"><input type="radio" name="service" value="installation"> Installation</label>
+            <label class="choice__item"><input type="radio" name="service" value="entretien"> Entretien</label>
+            <label class="choice__item"><input type="radio" name="service" value="renovation"> Rénovation</label>
+            <label class="choice__item"><input type="radio" name="service" value="autre"> Autre</label>
+          </div>
+          <p class="field__error" id="service-error"></p>
+        </fieldset>
+
+        <fieldset class="field choice">
+          <legend>Équipements concernés</legend>
+          <div class="choice__grid">
+            <label class="choice__item"><input type="checkbox" name="equipment" value="chauffe-eau"> Chauffe-eau</label>
+            <label class="choice__item"><input type="checkbox" name="equipment" value="wc"> WC</label>
+            <label class="choice__item"><input type="checkbox" name="equipment" value="douche-baignoire"> Douche / baignoire</label>
+            <label class="choice__item"><input type="checkbox" name="equipment" value="lavabo-evier"> Lavabo / évier</label>
+            <label class="choice__item"><input type="checkbox" name="equipment" value="robinetterie"> Robinetterie</label>
+            <label class="choice__item"><input type="checkbox" name="equipment" value="canalisations"> Canalisations</label>
+          </div>
+        </fieldset>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="housing">Type de logement</label>
+            <select id="housing" name="housing">
+              <option value="">Choisir…</option>
+              <option value="maison">Maison</option>
+              <option value="appartement">Appartement</option>
+              <option value="local-pro">Local professionnel</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="delay">Délai souhaité</label>
+            <select id="delay" name="delay">
+              <option value="">Choisir…</option>
+              <option value="urgent">Urgent (dès que possible)</option>
+              <option value="mois">Dans le mois</option>
+              <option value="pas-presse">Pas pressé</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="message">Décrivez votre besoin <span aria-hidden="true">*</span></label>
+          <textarea id="message" name="message" rows="6" required minlength="20"
+                    aria-describedby="message-hint message-error"></textarea>
+          <p class="field__hint" id="message-hint">Ex. : fuite sous l'évier de la cuisine depuis hier, robinet de plus de 10 ans…</p>
+          <p class="field__error" id="message-error"></p>
+        </div>
+
+        <div class="field">
+          <label for="photos">Photos (facultatif)</label>
+          <input id="photos" name="photos" type="file" accept="image/*" multiple
+                 aria-describedby="photos-hint">
+          <p class="field__hint" id="photos-hint">Une photo de l'installation m'aide à mieux estimer le travail.</p>
+        </div>
+
+        <div class="field">
+          <label for="callback">Meilleur moment pour vous rappeler</label>
+          <select id="callback" name="callback">
+            <option value="">Peu importe</option>
+            <option value="matin">Le matin</option>
+            <option value="midi">Entre midi et deux</option>
+            <option value="apres-midi">L'après-midi</option>
+            <option value="soir">En fin de journée</option>
+          </select>
+        </div>
+      </fieldset>
+
+      <div class="field">
+        <label class="consent">
+          <input type="checkbox" name="consent" id="consent" required aria-describedby="consent-error">
+          <span>J'accepte que mes informations soient utilisées pour traiter ma demande de devis. <span aria-hidden="true">*</span></span>
+        </label>
+        <p class="field__error" id="consent-error"></p>
+      </div>
+
+      <button class="pill pill--cta quote__submit" type="submit">Envoyer ma demande de devis</button>
+      <p class="quote__alt">Une urgence ? Appelez directement le <a href="tel:+33296000000">02 96 00 00 00</a>.</p>
+    </form>
+
+    <div class="quote__success" id="quote-success" role="status" tabindex="-1" hidden>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m7.5 12.5 3 3 6-6.5"/></svg>
+      <h2>Merci, votre demande est bien prise en compte</h2>
+      <p>Je vous recontacte rapidement pour en parler. En cas d'urgence, appelez le <a href="tel:+33296000000">02 96 00 00 00</a>.</p>
+      <a class="pill pill--blue" href="index.html">Retour à l'accueil</a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>Plomberie Kermarrec · Lamballe-Armor · Entreprise fictive</p>
+  </footer>
+</body>
+</html>
