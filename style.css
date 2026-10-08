@@ -789,65 +789,110 @@ main {
   margin-bottom: 1.75rem;
 }
 
-.contact__grid {
+/* Coordonnées en cartes : icône ronde, intitulé, valeur */
+.contact__layout {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
-  gap: 1.5rem 2rem;
+  gap: 1rem;
   margin-bottom: 2rem;
 }
 
-.contact__item h3 {
-  font-size: 1.3rem;
-  margin-bottom: 0.6rem;
+.contact__list {
+  list-style: none;
+  display: grid;
+  gap: 0.75rem;
 }
 
-.contact__item a {
+.contact__card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.15rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+}
+
+.contact__icon {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.contact__icon svg {
+  width: 1.35rem;
+  height: 1.35rem;
+  fill: none;
+  stroke: var(--white);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.contact__body {
+  min-width: 0;
+}
+
+.contact__card h3 {
+  font-size: 1rem;
+  margin-bottom: 0.2rem;
+}
+
+.contact__card h3 span {
+  font-family: "Source Sans 3", system-ui, sans-serif;
+  font-weight: 500;
+  opacity: 0.8;
+}
+
+.contact__value {
+  display: block;
   color: var(--white);
-  font-size: 1.4rem;
-  font-weight: 700;
-  text-decoration: none;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.5);
-}
-
-.contact__item a:hover,
-.contact__item a:focus-visible {
-  border-color: var(--white);
-}
-
-.contact address {
-  font-style: normal;
   font-size: 1.1rem;
+  font-style: normal;
+  line-height: 1.45;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+a.contact__value {
+  font-weight: 600;
 }
 
 .contact__note {
+  margin-top: 0.15rem;
   font-size: 0.95rem;
-  margin-top: 0.35rem;
-  opacity: 0.9;
+  opacity: 0.8;
 }
 
-.contact__hours {
-  display: grid;
-  grid-template-columns: auto auto;
-  justify-content: start;
-  gap: 0.25rem 1rem;
-}
-
-.contact__hours dt {
-  font-weight: 500;
+a.contact__value:hover,
+a.contact__value:focus-visible {
+  text-decoration: underline;
 }
 
 /* Petit plan d'accès */
+.contact__map {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
 .contact__map iframe {
   display: block;
   width: 100%;
-  height: 10rem;
-  border: 2px solid rgba(255, 255, 255, 0.5);
-  border-radius: 12px;
+  height: 14rem;
+  flex-grow: 1;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
   background: var(--bg-soft);
 }
 
-.contact__map .contact__note a {
-  font-size: inherit;
+.contact__maplink {
+  align-self: flex-start;
+  color: var(--white);
+  font-size: 0.95rem;
   font-weight: 600;
 }
 
@@ -934,7 +979,12 @@ main {
   }
 
   .contact__inner {
-    padding-left: 30%;
+    padding-left: 22%;
+  }
+
+  .contact__layout {
+    grid-template-columns: 1.3fr 1fr;
+    gap: 1.25rem;
   }
 
   .contact__deco {
