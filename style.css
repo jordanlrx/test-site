@@ -268,6 +268,41 @@ a:focus-visible {
   font-weight: 600;
 }
 
+/* Fil conducteur : tuyau qui relie toutes les sections (tracé calculé par script.js) */
+main {
+  position: relative;
+}
+
+.thread {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.thread path {
+  fill: none;
+  stroke: var(--blue-light);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1 2;
+  stroke-dashoffset: 1.01;
+  transition: stroke-dashoffset 0.15s linear;
+}
+
+/* Le premier tuyau ne sert plus que d'espace réservé : le fil le remplace */
+.has-thread .pipe path {
+  visibility: hidden;
+}
+
+@media (min-width: 48rem) {
+  .thread {
+    display: block;
+  }
+}
+
 /* Services */
 .services {
   background: var(--bg-soft);
