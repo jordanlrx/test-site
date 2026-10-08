@@ -19,6 +19,8 @@
     ['.card', 180, 'card'],
     ['.services .pill', 0, 'up'],
     ['.zone__text > *', 120, 'up'],
+    ['.reviews__head > *', 100, 'up'],
+    ['.review', 150, 'up'],
     ['.contact h2', 0, 'left'],
     ['.contact__item', 130, 'up'],
     ['.contact__inner > .pill', 0, 'up']
@@ -102,6 +104,7 @@
   var services = document.querySelector('.services');
   var inner = document.querySelector('.services__inner');
   var zone = document.querySelector('.zone');
+  var reviews = document.querySelector('.reviews'); // facultatif : le fil passe à côté des avis
   var contact = document.querySelector('.contact');
   var contactTitle = document.querySelector('.contact h2');
   if (!main || !photo || !spacer || !services || !inner || !zone || !contact || !contactTitle) return;
@@ -160,7 +163,8 @@
     var gxR = Math.min(W - sw / 2 - 2, inn.right + (W - inn.right) / 2); // couloir droit
     var yH = sp.top + sp.height * 0.6;           // premier virage, au-dessus de « Mes services »
     var yS = sv.bottom - 48;                     // entre les services et la zone
-    var yZ = zn.bottom - 48;                     // entre la zone et le contact
+    var last = reviews ? rel(reviews) : zn;      // dernière section avant le contact
+    var yZ = last.bottom - 48;                   // juste avant le contact
     var cx = title.left + sw / 2;                // se branche au-dessus de « Me contacter »
     var yEnd = ct.top + 4;
 

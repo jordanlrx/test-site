@@ -637,13 +637,133 @@ main {
   }
 }
 
+/* Avis clients */
+.reviews {
+  background: var(--bg-soft);
+  padding: 4rem 1rem 5rem;
+}
+
+.reviews__inner {
+  max-width: 60rem;
+  margin: 0 auto;
+}
+
+.reviews__head {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.reviews__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--orange);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.reviews__tag::before {
+  content: "";
+  width: 1.75rem;
+  height: 2px;
+  background: currentColor;
+}
+
+.reviews h2 {
+  color: var(--blue);
+  font-size: clamp(2.25rem, 6vw, 3.5rem);
+  margin: 0.5rem 0 0.75rem;
+}
+
+.reviews__intro {
+  color: var(--muted);
+  font-size: 1.1rem;
+}
+
+.reviews__list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 1.75rem;
+}
+
+.review figure {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 1.75rem;
+  background: var(--white);
+  border: 2px solid var(--blue-light);
+  border-radius: 16px;
+}
+
+/* Au survol, l'avis ressort légèrement */
+.review figure {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+@media (hover: hover) {
+  .review:hover figure {
+    transform: translateY(-6px);
+    border-color: var(--blue);
+    box-shadow: 0 16px 32px rgba(30, 64, 175, 0.16);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .review:hover figure {
+    transform: none;
+  }
+}
+
+.review__stars {
+  display: flex;
+  gap: 0.2rem;
+  margin-bottom: 1.25rem;
+}
+
+.review__stars svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  fill: var(--orange);
+}
+
+.review blockquote {
+  flex-grow: 1;
+  margin-bottom: 1.5rem;
+}
+
+.review blockquote p {
+  font-size: 1.1rem;
+  font-style: italic;
+  line-height: 1.65;
+}
+
+.review figcaption strong {
+  display: block;
+  font-family: "Lexend", system-ui, sans-serif;
+  font-size: 1.05rem;
+  color: var(--blue);
+}
+
+.review figcaption span {
+  display: block;
+  margin-top: 0.2rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
 /* Contact */
 .contact {
   position: relative;
   overflow: hidden;
   background: var(--blue);
   color: var(--white);
-  padding: 5rem 1rem;
+  padding: 3.5rem 1rem;
 }
 
 .contact__deco {
@@ -665,14 +785,15 @@ main {
 }
 
 .contact h2 {
-  margin-bottom: 2.5rem;
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  margin-bottom: 1.75rem;
 }
 
 .contact__grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
-  gap: 2rem;
-  margin-bottom: 3rem;
+  gap: 1.5rem 2rem;
+  margin-bottom: 2rem;
 }
 
 .contact__item h3 {
@@ -719,7 +840,7 @@ main {
 .contact__map iframe {
   display: block;
   width: 100%;
-  height: 12rem;
+  height: 10rem;
   border: 2px solid rgba(255, 255, 255, 0.5);
   border-radius: 12px;
   background: var(--bg-soft);
@@ -771,6 +892,10 @@ main {
     padding: 5rem 2rem 6rem;
   }
 
+  .reviews {
+    padding: 5rem 2rem 6rem;
+  }
+
   .zone__inner {
     grid-template-columns: 1.5fr 1fr;
     gap: 3rem;
@@ -801,7 +926,7 @@ main {
   }
 
   .contact {
-    padding: 6rem 2rem;
+    padding: 4rem 2rem;
   }
 
   .contact__inner {
@@ -812,7 +937,7 @@ main {
     left: -4rem;
     top: 50%;
     bottom: auto;
-    width: 30rem;
+    width: 24rem;
     transform: translateY(-50%);
   }
 
