@@ -18,6 +18,7 @@
     ['.services__intro', 0, 'up'],
     ['.card', 180, 'card'],
     ['.services .pill', 0, 'up'],
+    ['.zone__text > *', 120, 'up'],
     ['.contact h2', 0, 'left'],
     ['.contact__item', 130, 'up'],
     ['.contact__inner > .pill', 0, 'up']
@@ -75,6 +76,11 @@
   sizeFrames();
   window.addEventListener('resize', sizeFrames);
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(sizeFrames);
+
+  // La carte de la zone d'intervention s'anime quand elle arrive à l'écran.
+  document.querySelectorAll('.zone__map').forEach(function (map) {
+    observer.observe(map);
+  });
 
   // La goutte du contact se « dessine » au trait.
   document.querySelectorAll('.contact__deco').forEach(function (svg) {

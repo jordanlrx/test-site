@@ -151,7 +151,7 @@ a:focus-visible {
 .hero {
   background: var(--blue);
   color: var(--white);
-  padding: 3rem 1rem;
+  padding: 2.25rem 1rem 2.75rem;
 }
 
 .hero__inner {
@@ -211,18 +211,61 @@ a:focus-visible {
   background: rgba(255, 255, 255, 0.15);
 }
 
-/* Vidéo en forme de pilule, contenue dans le bandeau */
+/* Photo du bandeau : coins arrondis, cadre décalé et badge d'expérience */
 .hero__photo {
   position: relative;
   z-index: 1;
+  width: calc(100% - 0.9rem);
+  max-width: 30rem;
+  margin: 0 0 1rem;
+}
+
+.hero__photo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border: 2px solid var(--blue-light);
+  border-radius: 24px;
+  transform: translate(0.9rem, 0.9rem);
+}
+
+.hero__photo img {
   display: block;
   width: 100%;
-  max-width: 16rem;
   height: auto;
-  aspect-ratio: 9 / 10;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
-  margin: 0 auto;
-  border-radius: 999px;
+  object-position: 30% 40%;
+  border-radius: 24px;
+}
+
+.hero__badge {
+  position: absolute;
+  right: -0.4rem;
+  bottom: -1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.7rem 1.1rem;
+  background: var(--white);
+  color: var(--blue);
+  border-radius: 16px;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.28);
+  line-height: 1.2;
+}
+
+.hero__badge strong {
+  font-family: "Lexend", system-ui, sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.hero__badge span {
+  color: var(--muted);
+  font-size: 0.95rem;
+  font-weight: 600;
 }
 
 /* Services */
@@ -313,6 +356,182 @@ a:focus-visible {
   stroke-dashoffset: 0;
 }
 
+/* Zone d'intervention : carte de la Bretagne */
+.zone {
+  padding: 4rem 1rem 5rem;
+}
+
+.zone__inner {
+  max-width: 60rem;
+  margin: 0 auto;
+  display: grid;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.zone h2 {
+  color: var(--blue);
+  font-size: clamp(2.25rem, 6vw, 3.5rem);
+  margin-bottom: 1.25rem;
+}
+
+.zone__text p {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.zone__legend {
+  list-style: none;
+  margin: 1.5rem 0 2rem;
+  display: grid;
+  gap: 0.5rem;
+  font-weight: 600;
+}
+
+.zone__legend li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.zone__swatch {
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.zone__swatch--main {
+  background: var(--blue);
+}
+
+.zone__swatch--quote {
+  background: #bfdbfe;
+}
+
+.zone__map {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.zone__dep {
+  fill: #bfdbfe;
+  stroke: var(--white);
+  stroke-width: 2.5;
+  stroke-linejoin: round;
+}
+
+.zone__dep--22 {
+  fill: var(--blue);
+}
+
+.zone__labels text {
+  fill: var(--blue-dark);
+  font-family: "Source Sans 3", system-ui, sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  text-anchor: middle;
+}
+
+.zone__labels .zone__label-main {
+  fill: var(--white);
+  font-family: "Lexend", system-ui, sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.zone__pin path {
+  fill: var(--orange);
+  stroke: var(--white);
+  stroke-width: 3;
+}
+
+.zone__pin circle {
+  fill: var(--white);
+}
+
+.zone__pin text {
+  fill: var(--white);
+  font-family: "Lexend", system-ui, sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  text-anchor: end;
+}
+
+.zone__pulse {
+  fill: none;
+  stroke: var(--orange);
+  stroke-width: 3;
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+/* Animation de la carte au défilement (activée par script.js) :
+   les départements apparaissent un par un, puis les Côtes-d'Armor
+   se colorent et l'épingle de Lamballe tombe en place. */
+.anim .zone__dep {
+  opacity: 0;
+  transform: translateY(30px) scale(0.92);
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1), fill 0.8s ease;
+}
+
+.anim .zone__dep--29 { transition-delay: 0s; }
+.anim .zone__dep--56 { transition-delay: 0.15s; }
+.anim .zone__dep--35 { transition-delay: 0.3s; }
+
+.anim .zone__dep--22 {
+  fill: #bfdbfe;
+  transition-delay: 0.45s, 0.45s, 1.1s;
+}
+
+.anim .zone__map.is-visible .zone__dep {
+  opacity: 1;
+  transform: none;
+}
+
+.anim .zone__map.is-visible .zone__dep--22 {
+  fill: var(--blue);
+  transform: scale(1.03);
+}
+
+.anim .zone__labels,
+.anim .zone__pin {
+  opacity: 0;
+  transition: opacity 0.6s ease 1.5s;
+}
+
+.anim .zone__pin {
+  transform: translateY(-60px);
+  transition: opacity 0.4s ease 1.6s, transform 0.6s cubic-bezier(0.3, 1.5, 0.5, 1) 1.6s;
+}
+
+.anim .zone__map.is-visible .zone__labels,
+.anim .zone__map.is-visible .zone__pin {
+  opacity: 1;
+  transform: none;
+}
+
+.anim .zone__map.is-visible .zone__pulse {
+  animation: zone-pulse 2.2s ease-out 2.3s infinite;
+}
+
+@keyframes zone-pulse {
+  0% {
+    opacity: 0.9;
+    transform: scale(0.6);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(3.3);
+  }
+}
+
 /* Contact */
 .contact {
   position: relative;
@@ -391,6 +610,44 @@ a:focus-visible {
   font-weight: 500;
 }
 
+/* Petit plan d'accès */
+.contact__mapbox {
+  position: relative;
+  z-index: 0; /* garde la carte sous la barre du haut */
+  width: 100%;
+  height: 12rem;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--bg-soft);
+}
+
+/* Mention obligatoire réduite au minimum : « © OpenStreetMap » */
+.contact__mapbox .leaflet-control-attribution {
+  font-size: 10px;
+  line-height: 1.4;
+  padding: 0 5px;
+  background: rgba(255, 255, 255, 0.75);
+}
+
+.contact__mapbox .leaflet-control-attribution a {
+  font-size: inherit;
+  font-weight: 400;
+  color: var(--muted);
+  border: 0;
+}
+
+.map-pin svg {
+  display: block;
+  width: 30px;
+  height: 42px;
+}
+
+.contact__map .contact__note a {
+  font-size: inherit;
+  font-weight: 600;
+}
+
 /* Pied de page */
 .footer {
   padding: 1rem;
@@ -410,17 +667,39 @@ a:focus-visible {
   }
 
   .hero {
-    padding: 5rem 2rem;
+    padding: 3.25rem 2rem;
   }
 
   .hero__inner {
-    grid-template-columns: 1.5fr 1fr;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 3.5rem;
     align-items: center;
   }
 
+  .hero h1 {
+    font-size: clamp(2.75rem, 5.5vw, 4rem);
+  }
+
   .hero__photo {
-    max-width: 20rem;
-    margin: 0 0 0 auto;
+    max-width: none;
+    margin: 0;
+  }
+
+  .zone {
+    padding: 5rem 2rem 6rem;
+  }
+
+  .zone__inner {
+    grid-template-columns: 1.5fr 1fr;
+    gap: 3rem;
+  }
+
+  .zone__map {
+    order: -1;
+  }
+
+  .hero__badge {
+    right: -1.75rem;
   }
 
   .services {
