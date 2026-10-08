@@ -13,7 +13,8 @@
   // [sélecteur, décalage en ms entre éléments d'un même groupe, effet]
   var groups = [
     ['.hero__content > *', 120, 'up'],
-    ['.hero__photo', 0, 'zoom'],
+    ['.hero__photo', 0, 'fade'],
+    ['.hero__trust li', 120, 'up'],
     ['.services h2', 0, 'left'],
     ['.services__intro', 0, 'up'],
     ['.card', 180, 'card'],

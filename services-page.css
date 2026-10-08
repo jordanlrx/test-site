@@ -142,16 +142,6 @@
   gap: 1rem;
 }
 
-.pill--ghost {
-  color: var(--white);
-  border: 2px solid var(--white);
-}
-
-.pill--ghost:hover,
-.pill--ghost:focus-visible {
-  background: rgba(255, 255, 255, 0.15);
-}
-
 .svc-cta a:focus-visible {
   outline-color: var(--white);
 }
