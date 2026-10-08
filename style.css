@@ -883,9 +883,13 @@ main {
     font-size: clamp(2.75rem, 5.5vw, 4rem);
   }
 
+  /* La photo déborde un peu dans la marge de droite quand il y a de la place
+     (jusqu'à 4rem), pour être plus grande sans agrandir le bandeau. */
   .hero__photo {
+    --grow: clamp(0px, calc((100vw - 64rem) / 2), 4rem);
+    width: calc(100% - 0.9rem + var(--grow));
     max-width: none;
-    margin: 0;
+    margin: 0 calc(-1 * var(--grow)) 0 0;
   }
 
   .zone {
