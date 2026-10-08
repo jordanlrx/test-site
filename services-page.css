@@ -1,0 +1,185 @@
+/* Page « Mes services » — s'appuie sur les couleurs et polices de style.css */
+
+/* Lien de la page en cours dans la barre du haut */
+.topbar__nav a[aria-current="page"] {
+  border-color: var(--white);
+}
+
+/* En-tête de la page */
+.page-hero {
+  background: var(--blue);
+  color: var(--white);
+  padding: 3rem 1rem 3.5rem;
+}
+
+.page-hero__inner {
+  max-width: 60rem;
+  margin: 0 auto;
+}
+
+.page-hero h1 {
+  font-size: clamp(2.5rem, 7vw, 4rem);
+  margin: 0.75rem 0 1rem;
+}
+
+.page-hero__intro {
+  max-width: 38rem;
+  font-size: 1.1rem;
+}
+
+/* Liste des services : texte et photo en alternance */
+.svc-list {
+  background: var(--bg-soft);
+  padding: 3.5rem 1rem 4rem;
+}
+
+.svc {
+  max-width: 60rem;
+  margin: 0 auto;
+  display: grid;
+  gap: 1.75rem;
+  align-items: center;
+  scroll-margin-top: calc(var(--topbar-h) + 1rem);
+}
+
+.svc + .svc {
+  margin-top: 4.5rem;
+}
+
+.svc__num {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--blue);
+  font-family: "Lexend", system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.svc__num::before {
+  content: "";
+  width: 1.75rem;
+  height: 2px;
+  background: var(--orange);
+}
+
+.svc h2 {
+  color: var(--blue);
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  margin: 0.5rem 0 1rem;
+}
+
+.svc__desc {
+  font-size: 1.1rem;
+  margin-bottom: 1.25rem;
+}
+
+.svc__checks {
+  list-style: none;
+  display: grid;
+  gap: 0.55rem;
+  margin-bottom: 1.75rem;
+}
+
+.svc__checks li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 1.05rem;
+}
+
+.svc__checks svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+  fill: none;
+  stroke: var(--orange);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.svc__media {
+  display: block;
+}
+
+.svc__media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 24px;
+  box-shadow: 0 18px 40px rgba(30, 64, 175, 0.16);
+}
+
+/* Bandeau final */
+.svc-cta {
+  max-width: 60rem;
+  margin: 5rem auto 0;
+  padding: 2.5rem 1.5rem;
+  background: var(--blue);
+  color: var(--white);
+  border-radius: 24px;
+  text-align: center;
+}
+
+.svc-cta h2 {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  margin-bottom: 0.75rem;
+}
+
+.svc-cta p {
+  font-size: 1.1rem;
+  margin-bottom: 1.75rem;
+}
+
+.svc-cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.pill--ghost {
+  color: var(--white);
+  border: 2px solid var(--white);
+}
+
+.pill--ghost:hover,
+.pill--ghost:focus-visible {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.svc-cta a:focus-visible {
+  outline-color: var(--white);
+}
+
+/* Grand écran : texte et photo côte à côte, en alternance */
+@media (min-width: 48rem) {
+  .page-hero {
+    padding: 4rem 2rem 4.5rem;
+  }
+
+  .svc-list {
+    padding: 5rem 2rem 6rem;
+  }
+
+  .svc {
+    grid-template-columns: 1fr 1fr;
+    gap: 3.5rem;
+  }
+
+  .svc + .svc {
+    margin-top: 6rem;
+  }
+
+  .svc:nth-of-type(even) .svc__media {
+    order: -1;
+  }
+
+  .svc-cta {
+    padding: 3rem 2rem;
+  }
+}

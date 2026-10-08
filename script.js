@@ -21,6 +21,9 @@
     ['.zone__text > *', 120, 'up'],
     ['.reviews__head > *', 100, 'up'],
     ['.review', 150, 'up'],
+    ['.svc__text > *', 90, 'up'],
+    ['.svc__media', 0, 'zoom'],
+    ['.svc-cta', 0, 'up'],
     ['.contact h2', 0, 'left'],
     ['.contact__item', 130, 'up'],
     ['.contact__inner > .pill', 0, 'up']
@@ -36,7 +39,10 @@
   }, { rootMargin: '0px 0px -10% 0px', threshold: 0.15 });
 
   groups.forEach(function (group) {
-    document.querySelectorAll(group[0]).forEach(function (el, i) {
+    var counts = new Map(); // le décalage repart de zéro dans chaque bloc parent
+    document.querySelectorAll(group[0]).forEach(function (el) {
+      var i = counts.get(el.parentNode) || 0;
+      counts.set(el.parentNode, i + 1);
       el.classList.add('reveal', 'reveal--' + group[2]);
       el.style.transitionDelay = i * group[1] + 'ms';
       el.style.setProperty('--d', i * group[1] + 'ms');
