@@ -611,36 +611,13 @@ a:focus-visible {
 }
 
 /* Petit plan d'accès */
-.contact__mapbox {
-  position: relative;
-  z-index: 0; /* garde la carte sous la barre du haut */
+.contact__map iframe {
+  display: block;
   width: 100%;
   height: 12rem;
   border: 2px solid rgba(255, 255, 255, 0.5);
   border-radius: 12px;
-  overflow: hidden;
   background: var(--bg-soft);
-}
-
-/* Mention obligatoire réduite au minimum : « © OpenStreetMap » */
-.contact__mapbox .leaflet-control-attribution {
-  font-size: 10px;
-  line-height: 1.4;
-  padding: 0 5px;
-  background: rgba(255, 255, 255, 0.75);
-}
-
-.contact__mapbox .leaflet-control-attribution a {
-  font-size: inherit;
-  font-weight: 400;
-  color: var(--muted);
-  border: 0;
-}
-
-.map-pin svg {
-  display: block;
-  width: 30px;
-  height: 42px;
 }
 
 .contact__map .contact__note a {
