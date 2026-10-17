@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nos réalisations – Plomberie Kermarrec, Lamballe</title>
+  <meta name="description" content="Chantiers de plomberie réalisés à Lamballe et dans les Côtes-d'Armor : dépannage, installation sanitaire, chauffe-eau, rénovation de salle de bain, recherche de fuite, entretien.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;600;700&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="realisations.css">
+  <script src="realisations.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="Plomberie Kermarrec, retour à l'accueil">
+      <svg class="brand__icon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 2.5C9 7 5.5 10.5 5.5 14.5a6.5 6.5 0 0 0 13 0C18.5 10.5 15 7 12 2.5Z"/>
+        <path d="M9 15a3 3 0 0 0 3 3"/>
+      </svg>
+      Kermarrec
+    </a>
+    <nav class="topbar__nav" aria-label="Navigation principale">
+      <a href="services.html">Services</a>
+      <a href="realisations.html" aria-current="page">Réalisations</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="devis.html">Devis</a>
+    </nav>
+    <a class="pill pill--cta topbar__cta" href="tel:+33296000000">Appeler</a>
+  </header>
+
+  <section class="page-hero">
+    <div class="page-hero__inner">
+      <p class="hero__tag">Plombier à Lamballe-Armor (22)</p>
+      <h1>Nos réalisations</h1>
+      <p class="page-hero__intro">
+        Quelques chantiers menés à Lamballe et dans les Côtes-d'Armor. Choisissez un service
+        pour filtrer, et cliquez sur une photo pour l'agrandir.
+      </p>
+    </div>
+  </section>
+
+  <main class="works">
+    <!-- Photos d'illustration (banques d'images libres : Unsplash, StockSnap, Rawpixel en CC0).
+         À remplacer par de vraies photos de chantiers avant la mise en ligne. -->
+    <div class="works__inner">
+      <div class="filters" role="group" aria-label="Filtrer les réalisations par service">
+          <button type="button" class="filter" data-filter="all" aria-pressed="true">Tous <span class="filter__count">15</span></button>
+          <button type="button" class="filter" data-filter="depannage" aria-pressed="false">Dépannage <span class="filter__count">2</span></button>
+          <button type="button" class="filter" data-filter="installation" aria-pressed="false">Installation <span class="filter__count">3</span></button>
+          <button type="button" class="filter" data-filter="chauffe-eau" aria-pressed="false">Chauffe-eau <span class="filter__count">2</span></button>
+          <button type="button" class="filter" data-filter="renovation" aria-pressed="false">Rénovation <span class="filter__count">3</span></button>
+          <button type="button" class="filter" data-filter="fuite" aria-pressed="false">Fuites <span class="filter__count">2</span></button>
+          <button type="button" class="filter" data-filter="entretien" aria-pressed="false">Entretien <span class="filter__count">3</span></button>
+      </div>
+      <p class="works__status" id="works-status" aria-live="polite">15 réalisations</p>
+
+      <ul class="works__grid">
+        <li class="work" data-service="depannage">
+          <button type="button" class="work__open" data-full="images/services/depannage.webp" aria-label="Agrandir la photo : Remplacement d'un siphon qui fuyait, Lamballe-Armor">
+            <img src="images/services/depannage.webp" width="720" height="540" loading="lazy" alt="Plombier remplaçant le siphon sous un évier">
+            <span class="work__zoom"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/><path d="M11 8v6M8 11h6"/></svg></span>
+          </button>
+          <div class="work__body">
+            <span class="work__tag">Dépannage</span>
+            <h2 class="work__title">Remplacement d'un siphon qui fuyait</h2>
+            <p class="work__place"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Lamballe-Armor</p>
+          </div>
+        </li>
+        <li class="work" data-service="renovation">
+          <button type="button" class="work__open" data-full="images/realisations/douche-italienne.webp" aria-label="Agrandir la photo : Douche à l'italienne en mosaïque, Saint-Brieuc">
+            <img src="images/realisations/douche-italienne-thumb.webp" width="720" height="540" loading="lazy" alt="Douche à l'italienne avec mur en mosaïque bleue et colonne de douche">
+            <span class="work__zoom"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/><path d="M11 8v6M8 11h6"/></svg></span>
+          </button>
+          <div class="work__body">
+            <span class="work__tag">Rénovation</span>
+            <h2 class="work__title">Douche à l'italienne en mosaïque</h2>
+            <p class="work__place"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Saint-Brieuc</p>
+          </div>
+        </li>
+        <li class="work" data-service="installation">
+          <button type="button" class="work__open" data-full="images/realisations/mitigeur-cuisine.webp" aria-label="Agrandir la photo : Pose d'un mitigeur à douchette, Pléneuf-Val-André">
+            <img src="images/realisations/mitigeur-cuisine-thumb.webp" width="720" height="540" loading="lazy" alt="Mitigeur de cuisine chromé à douchette">
+            <span class="work__zoom"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/><path d="M11 8v6M8 11h6"/></svg></span>
+          </button>
+          <div class="work__body">
+            <span class="work__tag">Installation</span>
+            <h2 class="work__title">Pose d'un mitigeur à douchette</h2>
+            <p class="work__place"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Pléneuf-Val-André</p>
+          </div>
+        </li>
+        <li class="work" data-service="chauffe-eau">
+          <button type="button" class="work__open" data-full="images/services/chauffe-eau.webp" aria-label="Agrandir la photo : Chauffe-eau thermodynamique, Hénon">
+            <img src="images/services/chauffe-eau.webp" width="720" height="540" loading="lazy" alt="Chauffe-eau et unité extérieure posés contre le mur d'une maison">
+            <span class="work__zoom"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/><path d="M11 8v6M8 11h6"/></svg></span>
+          </button>
+          <div class="work__body">
+            <span class="work__tag">Chauffe-eau</span>
+            <h2 class="work__title">Chauffe-eau thermodynamique</h2>
+            <p class="work__place"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Hénon</p>
+          </div>
+        </li>
+        <li class="work" data-service="fuite">
+          <button type="button" class="work__open" data-full="images/services/fuite.webp" aria-label="Agrandir la photo : Fuite sur un raccord en laiton, Quintin">
+            <img src="images/services/fuite.webp" width="720" height="540" loading="lazy" alt="Eau s'échappant d'un raccord en laiton">
+            <span class="work__zoom"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/><path d="M11 8v6M8 11h6"/></svg></span>
+          </button>
+          <div class="work__body">
+            <span class="work__tag">Recherche de fuite</span>
+            <h2 class="work__title">Fuite sur un raccord en laiton</h2>
+            <p class="work__place"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Quintin</p>
+          </div>
+        </li>
+        <li class="work" data-service="entretien">
+          <button type="button" class="work__open" data-full="images/services/entretien.webp" aria-label="Agrandir la photo : Débouchage d'un évier de cuisine, Lamballe-Armor">
+            <img src="images/services/entretien.webp" width="720" height="540" loading="lazy" alt="Pince multiprise et chiffon après un débouchage">
+            <span class="work__zoom"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/><path d="M11 8v6M8 11h6"/></svg></span>
+          </button>
+          <div class="work__body">
+            <span class="work__tag">Entretien</span>
+            <h2 class="work__title">Débouchage d'un évier de cuisine</h2>
+            <p class="work__place"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Lamballe-Armor</p>
+          </div>
+        </li>
+        <li class="work" data-service="installation">
+          <button type="button" class="work__open" data-full="images/realisations/vasque.webp" aria-label="Agrandir la photo : Vasque et robinetterie murale, Erquy">
+            <img src="images/realisations/vasque-thumb.webp" width="720" height="540" loading="lazy" alt="Vasque blanche et robinetterie devant un mur carrelé gris">
+            <span class="work__zoom"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/><path d="M11 8v6M8 11h6"/></svg></span>
+          </button>
+          <div class="work__body">
+            <span class="work__tag">Installation</span>
+            <h2 class="work__title">Vasque et robinetterie murale</h2>
+            <p class="work__place"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Erquy</p>
+          </div>
+        </li>
+        <li class="work" data-service="renovation">
+          <button type="button" class="work__open" data-full="images/realisations/douche-ardoise.webp" aria-label="Agrandir la photo : Douche en carrelage ardoise, Moncontour">
+            <img src="images/realisations/douche-ardoise-thumb.webp" width="720" height="540" loading="lazy" alt="Mur de douche en grands carreaux couleur ardoise">
+            <span class="work__zoom"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/><path d="M11 8v6M8 11h6"/></svg></span>
+          </button>
+          <div class="work__body">
+            <span class="work__tag">Rénovation</span>
+            <h2 class="work__title">Douche en carrelage ardoise</h2>
+            <p class="work__place"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Moncontour</p>
+          </div>
+        </li>
+        <li class="work" data-service="depannage">
+          <button type="button" class="work__open" data-full="images/realisations/canalisation-cles.webp" aria-label="Agrandir la photo : Réparation d'une canalisation acier, Plestan">
+            <img src="images/realisations/canalisation-cles-thumb.webp" width="720" height="540" loading="lazy" alt="Clés à tube serrant une ancienne canalisation en acier">
+            <span class="work__zoom"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/><path d="M11 8v6M8 11h6"/></svg></span>
+          </button>
+          <div class="work__body">
+            <span class="work__tag">Dépannage</span>
+            <h2 class="work__title">Réparation d'une canalisation acier</h2>
+            <p class="work__place"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Plestan</p>
+          </div>
+        </li>
+        <li class="work" data-service="installation">
+          <button type="button" class="work__open" data-full="images/realisations/wc.webp" aria-label="Agrandir la photo : Pose de WC suspendus, Lamballe-Armor">
+            <img src="images/realisations/wc-thumb.webp" width="720" height="540" loading="lazy" alt="WC suspendu blanc à abattant ouvert">
+            <span class="work__zoom"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/><path d="M11 8v6M8 11h6"/></svg></span>
+          </button>
+          <div class="work__body">
+            <span class="work__tag">Installation</span>
+            <h2 class="work__title">Pose de WC suspendus</h2>
+            <p class="work__place"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Lamballe-Armor</p>
+          </div>
+        </li>
+        <li class="work" data-service="chauffe-eau">
+          <button type="button" class="work__open" data-full="images/realisations/ancien-chauffe-eau.webp" aria-label="Agrandir la photo : Dépose d'un ancien chauffe-eau, Jugon-les-Lacs">
+            <img src="images/realisations/ancien-chauffe-eau-thumb.webp" width="720" height="540" loading="lazy" alt="Ancien chauffe-eau en cuivre fixé au mur avant remplacement">
+            <span class="work__zoom"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/><path d="M11 8v6M8 11h6"/></svg></span>
+          </button>
+          <div class="work__body">
+            <span class="work__tag">Chauffe-eau</span>
+            <h2 class="work__title">Dépose d'un ancien chauffe-eau</h2>
+            <p class="work__place"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Jugon-les-Lacs</p>
+          </div>
+        </li>
+        <li class="work" data-service="fuite">
+          <button type="button" class="work__open" data-full="images/realisations/tuyaux-pvc.webp" aria-label="Agrandir la photo : Reprise d'un réseau d'évacuation, Plérin">
+            <img src="images/realisations/tuyaux-pvc-thumb.webp" width="720" height="540" loading="lazy" alt="Canalisations d'évacuation en PVC blanc le long d'un mur">
+            <span class="work__zoom"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/><path d="M11 8v6M8 11h6"/></svg></span>
+          </button>
+          <div class="work__body">
+            <span class="work__tag">Recherche de fuite</span>
+            <h2 class="work__title">Reprise d'un réseau d'évacuation</h2>
+            <p class="work__place"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Plérin</p>
+          </div>
+        </li>
+        <li class="work" data-service="renovation">
+          <button type="button" class="work__open" data-full="images/services/renovation.webp" aria-label="Agrandir la photo : Salle de bain rénovée de A à Z, Saint-Brieuc">
+            <img src="images/services/renovation.webp" width="720" height="540" loading="lazy" alt="Salle de bain moderne avec douche vitrée et meuble vasque">
+            <span class="work__zoom"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/><path d="M11 8v6M8 11h6"/></svg></span>
+          </button>
+          <div class="work__body">
+            <span class="work__tag">Rénovation</span>
+            <h2 class="work__title">Salle de bain rénovée de A à Z</h2>
+            <p class="work__place"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Saint-Brieuc</p>
+          </div>
+        </li>
+        <li class="work" data-service="entretien">
+          <button type="button" class="work__open" data-full="images/realisations/pommeau-douche.webp" aria-label="Agrandir la photo : Détartrage d'une colonne de douche, Saint-Alban">
+            <img src="images/realisations/pommeau-douche-thumb.webp" width="720" height="540" loading="lazy" alt="Pommeau de douche détartré avec un jet régulier">
+            <span class="work__zoom"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/><path d="M11 8v6M8 11h6"/></svg></span>
+          </button>
+          <div class="work__body">
+            <span class="work__tag">Entretien</span>
+            <h2 class="work__title">Détartrage d'une colonne de douche</h2>
+            <p class="work__place"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Saint-Alban</p>
+          </div>
+        </li>
+        <li class="work" data-service="entretien">
+          <button type="button" class="work__open" data-full="images/realisations/outillage.webp" aria-label="Agrandir la photo : Contrôle complet d'une installation, Planguenoual">
+            <img src="images/realisations/outillage-thumb.webp" width="720" height="540" loading="lazy" alt="Outillage et raccords de plomberie préparés sur un établi">
+            <span class="work__zoom"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/><path d="M11 8v6M8 11h6"/></svg></span>
+          </button>
+          <div class="work__body">
+            <span class="work__tag">Entretien</span>
+            <h2 class="work__title">Contrôle complet d'une installation</h2>
+            <p class="work__place"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Planguenoual</p>
+          </div>
+        </li>
+      </ul>
+
+      <section class="works-cta">
+        <h2>Un projet similaire&nbsp;?</h2>
+        <p>Parlez-moi de votre chantier : je vous réponds rapidement avec un devis gratuit.</p>
+        <div class="works-cta__actions">
+          <a class="pill pill--cta pill--icon" href="tel:+33296000000"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>Appeler le 02 96 00 00 00</a>
+          <a class="pill pill--ghost" href="devis.html">Demander un devis</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <dialog class="lightbox" aria-labelledby="lightbox-title">
+    <figure class="lightbox__figure">
+      <img class="lightbox__img" src="" alt="">
+      <figcaption class="lightbox__caption">
+        <span class="work__tag lightbox__tag"></span>
+        <strong class="lightbox__title" id="lightbox-title"></strong>
+        <span class="lightbox__place"></span>
+        <span class="lightbox__count" aria-live="polite"></span>
+      </figcaption>
+    </figure>
+    <button type="button" class="lightbox__btn lightbox__close" aria-label="Fermer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+    <button type="button" class="lightbox__btn lightbox__prev" aria-label="Photo précédente"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
+    <button type="button" class="lightbox__btn lightbox__next" aria-label="Photo suivante"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
+  </dialog>
+
+  <footer class="footer">
+    <p>Plomberie Kermarrec · Lamballe-Armor · Entreprise fictive</p>
+  </footer>
+</body>
+</html>

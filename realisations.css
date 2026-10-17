@@ -1,0 +1,467 @@
+/* Page « Nos réalisations » — s'appuie sur les couleurs et polices de style.css */
+
+/* Lien de la page en cours dans la barre du haut */
+.topbar__nav a[aria-current="page"] {
+  border-color: var(--white);
+}
+
+/* En-tête de la page */
+.page-hero {
+  background: var(--blue);
+  color: var(--white);
+  padding: 3rem 1rem 3.5rem;
+}
+
+.page-hero__inner {
+  max-width: 60rem;
+  margin: 0 auto;
+}
+
+.page-hero h1 {
+  font-size: clamp(2.5rem, 7vw, 4rem);
+  margin: 0.75rem 0 1rem;
+}
+
+.page-hero__intro {
+  max-width: 38rem;
+  font-size: 1.1rem;
+}
+
+/* Zone principale */
+.works {
+  background: var(--bg-soft);
+  padding: 2.5rem 1rem 4rem;
+}
+
+.works__inner {
+  max-width: 60rem;
+  margin: 0 auto;
+}
+
+/* Filtres par service, en pastilles */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.filter {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  padding: 0.4rem 0.8rem;
+  font: inherit;
+  font-weight: 600;
+  color: var(--blue);
+  background: var(--white);
+  border: 2px solid var(--blue-light);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.filter:hover {
+  border-color: var(--blue);
+}
+
+.filter:focus-visible {
+  outline: 3px solid var(--text);
+  outline-offset: 2px;
+}
+
+.filter[aria-pressed="true"] {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: var(--white);
+}
+
+.filter__count {
+  display: inline-grid;
+  place-items: center;
+  min-width: 1.6rem;
+  height: 1.6rem;
+  padding: 0 0.4rem;
+  font-size: 0.85rem;
+  border-radius: 999px;
+  background: var(--bg-soft);
+  color: var(--blue);
+}
+
+.filter[aria-pressed="true"] .filter__count {
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--white);
+}
+
+/* Mobile : les filtres tiennent sur une ligne qu'on fait défiler du doigt */
+@media (max-width: 47.99rem) {
+  .filters {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin: 0 -1rem;
+    padding: 0.25rem 1rem;
+    scroll-snap-type: x proximity;
+    scroll-padding-inline: 1rem;
+    scrollbar-width: none;
+  }
+
+  .filters::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filter {
+    flex-shrink: 0;
+    scroll-snap-align: start;
+  }
+}
+
+.works__status {
+  margin: 1.25rem 0 1.5rem;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+/* Grille des chantiers */
+.works__grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+  gap: 1.5rem;
+}
+
+.work {
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border: 2px solid var(--blue-light);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, opacity 0.35s ease;
+}
+
+.work[hidden] {
+  display: none;
+}
+
+@media (hover: hover) {
+  .work:hover {
+    transform: translateY(-6px);
+    border-color: var(--blue);
+    box-shadow: 0 16px 32px rgba(30, 64, 175, 0.16);
+  }
+}
+
+.work__open {
+  position: relative;
+  display: block;
+  padding: 0;
+  border: 0;
+  background: var(--bg-soft);
+  cursor: zoom-in;
+  overflow: hidden;
+}
+
+.work__open:focus-visible {
+  outline: 3px solid var(--text);
+  outline-offset: -3px;
+}
+
+.work__open img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.work__zoom {
+  position: absolute;
+  right: 0.75rem;
+  bottom: 0.75rem;
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.work__zoom svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: none;
+  stroke: var(--blue);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.work__open:hover img,
+.work__open:focus-visible img {
+  transform: scale(1.05);
+}
+
+.work__open:hover .work__zoom,
+.work__open:focus-visible .work__zoom {
+  opacity: 1;
+  transform: none;
+}
+
+/* Sur écran tactile, la loupe reste visible pour signaler qu'on peut agrandir */
+@media (hover: none) {
+  .work__zoom {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.work__body {
+  padding: 1rem 1.25rem 1.25rem;
+}
+
+.work__tag {
+  display: inline-block;
+  padding: 0.15rem 0.65rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--orange);
+  background: #fff1e8;
+  border-radius: 999px;
+}
+
+.work__title {
+  margin: 0.6rem 0 0.35rem;
+  font-size: 1.2rem;
+  line-height: 1.25;
+  color: var(--blue);
+}
+
+.work__place {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.work__place svg {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Apparition des cartes (filtrage et défilement), activée par realisations.js */
+.js-anim .work.is-pending {
+  opacity: 0;
+  transform: translateY(1.5rem);
+}
+
+/* Bandeau final */
+.works-cta {
+  margin-top: 4rem;
+  padding: 2.5rem 1.5rem;
+  background: var(--blue);
+  color: var(--white);
+  border-radius: 24px;
+  text-align: center;
+}
+
+.works-cta h2 {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  margin-bottom: 0.75rem;
+}
+
+.works-cta p {
+  font-size: 1.1rem;
+  margin-bottom: 1.75rem;
+}
+
+.works-cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.works-cta a:focus-visible {
+  outline-color: var(--white);
+}
+
+/* Visionneuse (photo agrandie) */
+.lightbox {
+  width: min(64rem, calc(100vw - 2rem));
+  max-height: calc(100vh - 2rem);
+  margin: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 20px;
+  background: var(--white);
+  color: var(--text);
+  overflow: visible;
+}
+
+.lightbox::backdrop {
+  background: rgba(15, 23, 42, 0.82);
+}
+
+.lightbox[open] {
+  animation: lightbox-in 0.25s ease;
+}
+
+@keyframes lightbox-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+}
+
+.lightbox__figure {
+  margin: 0;
+}
+
+.lightbox__img {
+  display: block;
+  width: 100%;
+  max-height: calc(100vh - 9rem);
+  object-fit: contain;
+  background: var(--blue-dark);
+  border-radius: 20px 20px 0 0;
+}
+
+.lightbox__caption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.9rem;
+  padding: 0.9rem 1.25rem 1rem;
+}
+
+.lightbox__title {
+  font-family: "Lexend", system-ui, sans-serif;
+  font-size: 1.1rem;
+  color: var(--blue);
+}
+
+.lightbox__place {
+  color: var(--muted);
+}
+
+.lightbox__count {
+  margin-left: auto;
+  color: var(--muted);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.lightbox__btn {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border: 0;
+  border-radius: 50%;
+  background: var(--white);
+  color: var(--blue);
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.25);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.lightbox__btn:hover {
+  background: var(--bg-soft);
+}
+
+.lightbox__btn:focus-visible {
+  outline: 3px solid var(--orange);
+  outline-offset: 2px;
+}
+
+.lightbox__btn svg {
+  width: 1.4rem;
+  height: 1.4rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.lightbox__close {
+  top: -0.9rem;
+  right: -0.9rem;
+}
+
+.lightbox__prev,
+.lightbox__next {
+  top: calc(50% - 3rem);
+}
+
+.lightbox__prev {
+  left: 0.75rem;
+}
+
+.lightbox__next {
+  right: 0.75rem;
+}
+
+/* Grand écran */
+@media (min-width: 48rem) {
+  .page-hero {
+    padding: 4rem 2rem 4.5rem;
+  }
+
+  .works {
+    padding: 3rem 2rem 6rem;
+  }
+
+  .works-cta {
+    padding: 3rem 2rem;
+  }
+
+  .lightbox__prev {
+    left: -1.5rem;
+  }
+
+  .lightbox__next {
+    right: -1.5rem;
+  }
+}
+
+@media (max-width: 34rem) {
+  .lightbox__close {
+    top: 0.6rem;
+    right: 0.6rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .work,
+  .work__open img,
+  .work__zoom,
+  .filter,
+  .lightbox__btn {
+    transition: none;
+  }
+
+  .work:hover,
+  .work__open:hover img,
+  .work__open:focus-visible img {
+    transform: none;
+  }
+
+  .lightbox[open] {
+    animation: none;
+  }
+}
