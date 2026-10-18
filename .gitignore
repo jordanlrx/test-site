@@ -1,0 +1,22 @@
+# Outils de travail (Claude Code, skills)
+.claude/
+.agents/
+
+# Copies et fichiers temporaires
+* - Copie*
+*.bak
+*.tmp
+__pycache__/
+*.pyc
+
+# Médias qui ne sont plus utilisés par le site
+images/plombier.jpg
+videos/
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Vercel
+.vercel
