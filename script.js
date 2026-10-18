@@ -30,6 +30,8 @@
     ['.contact__inner > .pill', 0, 'up']
   ];
 
+  var phone = window.matchMedia('(max-width: 47.99rem)').matches;
+
   var observer = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
       if (!entry.isIntersecting) return;
@@ -45,8 +47,10 @@
       var i = counts.get(el.parentNode) || 0;
       counts.set(el.parentNode, i + 1);
       el.classList.add('reveal', 'reveal--' + group[2]);
-      el.style.transitionDelay = i * group[1] + 'ms';
-      el.style.setProperty('--d', i * group[1] + 'ms');
+      // Sur téléphone, les services sont en 2 colonnes : chaque paire apparaît ensemble.
+      var delay = group[0] === '.card' && phone ? (i % 2) * 150 : i * group[1];
+      el.style.transitionDelay = delay + 'ms';
+      el.style.setProperty('--d', delay + 'ms');
       // Une fois apparu, on rend la main aux effets de survol normaux.
       el.addEventListener('transitionend', function done(e) {
         if (e.target !== el || e.propertyName !== 'transform') return;
